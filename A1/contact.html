@@ -13,6 +13,81 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- TODO: complete me -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active-page">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <div class="portrait-frame">
+      <img src="edison-liem.jpg" class="portrait" alt="Portrait of Edison">
+    </div>
+    <h1 class="contact-title">Ho Kwan Edison Liem</h1>
+    <a 
+      href="mailto:edison.liem@mail.utoronto.ca?subject=Bug%20Found&body=I%20found%20the%20following%20bug%20on%20your%20website:%0A%0A"
+      class="contact-subtitle"
+    >
+      edison.liem@mail.utoronto.ca
+    </a>
+    <form
+      action="https://postman-echo.com/post"
+      method="POST"
+      class="feedback-form"
+    >
+      <div class="email-field">
+        <label for="email" class="email-label">Your Email:</label>
+        <input 
+          type="email"
+          id="email"
+          name="email"
+          class="email-input"
+          required
+        />
+      </div>
+      <div class="feedback-field">
+        <label for="feedback" class="feedback-label">Feedback:</label>
+        <textarea
+          id="feedback"
+          name="feedback"
+          rows="4"
+          placeholder="Enter your feedback here"
+          class="feedback-input"
+          required
+        ></textarea>
+      </div>
+      <div class="attachment-field">
+        <label for="attachment" class="attachment-label">Attachment:</label>
+        <div class="attachment-input-box">
+          <input
+          type="file"
+          id="attachment"
+          name="attachment"
+          placeholder="Browse..."
+          class="attachment-input"
+          required
+          />
+        </div>
+      </div>
+      <div class="consent-field">
+        <div class="consent-input-box">
+          <input
+          type="checkbox"
+          id="consent"
+          name="consent"
+          value="no"
+          class="consent-input"
+          required
+          />
+        </div>
+        <label for="consent" class="consent-label">You agree to receive emails from me</label>
+      </div>
+      <button type="submit" class="submit-btn">Send Feedback</button>
+    </form>
+  </main>
+  <footer>
+    <p>Copyright 2025 by liemho.</p>
+  </footer>
 </body>
 </html>
