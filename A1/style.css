@@ -243,25 +243,20 @@ main {
   height: 100%;
 }
 
-.email-field {
-  height: 47px;
-}
-
 .email-input {
   border: 1px solid #DDDDDD;
   border-radius: 3px;
+  padding: 0.8rem;
+  width: 100%;
 }
 
 .feedback-input {
-  padding: 12px;
+  padding: 0.8rem;
   border: 1px solid #DDDDDD;
   border-radius: 3px;
   font-size: 16px;
   color: #888888;
-}
-
-.attachment-field {
-  height: 53px;
+  width: 100%;
 }
 
 .attachment-input-box {
@@ -269,7 +264,8 @@ main {
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 0.8rem;
+  width: 100%;
 }
 
 .attachment-input {
@@ -318,4 +314,25 @@ main {
   background: #007EA8;
   color: white;
   border: 2px solid white;
+}
+
+@media (max-width: 600px) {
+  .feedback-form > div {
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+  }
+
+  .feedback-form label:first-child {
+    text-align: start;
+    padding-left: 0;
+  }
+
+  .consent-input-box {
+    justify-content: start;
+  }
+
+  .consent-label {
+    padding-top: 0;
+  }
 }
