@@ -32,6 +32,7 @@
       edison.liem@mail.utoronto.ca
     </a>
     <form
+      enctype="multipart/form-data"
       action="https://postman-echo.com/post"
       method="POST"
       class="feedback-form"
@@ -58,12 +59,12 @@
         ></textarea>
       </div>
       <div class="attachment-field">
-        <label for="attachment" class="attachment-label">Attachment:</label>
+        <label for="attachments" class="attachment-label">Attachment:</label>
         <div class="attachment-input-box">
           <input
           type="file"
-          id="attachment"
-          name="attachment"
+          id="attachments"
+          name="attachments"
           placeholder="Browse..."
           class="attachment-input"
           required
