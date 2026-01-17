@@ -27,14 +27,10 @@ body {
 h1,
 p, 
 li, 
-a, 
-label, 
-input, 
-textarea,
-button,
+a,
 summary {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 button {
@@ -217,13 +213,13 @@ main {
 }
 
 .feedback-form {
-  margin-top: 20px;
+  margin-top: 24px;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
   max-width: 960px;
 }
@@ -232,6 +228,7 @@ main {
   width: 100%;
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .feedback-form label:first-child {
@@ -240,7 +237,6 @@ main {
   font-weight: bold;
   color: #333333;
   text-align: end;
-  padding-right: 15px;
 }
 
 .email-input,
@@ -267,17 +263,11 @@ main {
   width: 100%;
 }
 
-.attachment-input-box {
+.attachment-input {
   border: 1px solid #DDDDDD;
-  height: 100%;
-  display: flex;
-  align-items: center;
+  border-radius: 3px;
   padding: 0.8rem;
   width: 100%;
-}
-
-.attachment-input {
-  padding: 0px;
   font-size: 1rem;
 }
 
@@ -286,7 +276,6 @@ main {
   display: flex;
   justify-content: end;
   align-content: center;
-  padding-right: 15px;
 }
 
 .consent-input {
@@ -299,7 +288,7 @@ main {
   text-align: start;
   font-size: 16px;
   color: #333333;
-  padding: 15px 0px;
+  padding: 16px 0px;
 }
 
 .submit-btn {
