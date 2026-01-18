@@ -44,12 +44,8 @@ footer {
     background-color: #333333;
 }
 
-header,
-main {
-    padding: 16px;
-}
-
 header {
+    padding: 16px;
     height: 66px;
 }
 
