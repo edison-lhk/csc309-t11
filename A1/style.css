@@ -221,8 +221,8 @@ main {
 
 .feedback-form {
   margin-top: 24px;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
