@@ -339,4 +339,8 @@ main {
   .consent-label {
     padding-top: 0;
   }
+
+  .submit-label {
+    display: none;
+  }
 }
