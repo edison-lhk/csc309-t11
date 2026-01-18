@@ -242,7 +242,7 @@ main {
   font-size: 16px;
   font-weight: bold;
   color: #333333;
-  text-align: end;
+  text-align: right;
 }
 
 .email-input,
@@ -291,7 +291,7 @@ main {
 
 .consent-label {
   width: 100%;
-  text-align: start;
+  text-align: left;
   font-size: 16px;
   color: #333333;
   padding: 16px 0px;
@@ -327,7 +327,7 @@ main {
   }
 
   .feedback-form label:first-child {
-    text-align: start;
+    text-align: left;
     padding-left: 0;
   }
 
