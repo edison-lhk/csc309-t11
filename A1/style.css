@@ -294,6 +294,10 @@ main {
   padding: 16px 0px;
 }
 
+.submit-label {
+  width: 119px;
+}
+
 .submit-btn {
   padding: 16px 8px;
   width: 153px;
