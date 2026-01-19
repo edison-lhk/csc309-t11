@@ -240,7 +240,7 @@ main {
   font-weight: bold;
   color: #333333;
   text-align: right;
-  padding-top: 16px;
+  padding-top: 0.8rem;
   align-self: baseline;
 }
 
