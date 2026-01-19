@@ -240,6 +240,8 @@ main {
   font-weight: bold;
   color: #333333;
   text-align: right;
+  padding-top: 16px;
+  align-self: baseline;
 }
 
 .email-input,
@@ -331,6 +333,7 @@ main {
   .feedback-form label:first-child {
     text-align: left;
     padding-left: 0;
+    padding-top: 0;
   }
 
   .consent-input-box {
