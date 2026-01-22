@@ -1,0 +1,51 @@
+/* components.css
+ *
+ * CSC309 - Tutorial 3
+ * University of Toronto
+ */
+
+/* Product category heading (category titles) */
+main h2 {
+    margin: 2em 0 1em 0.5em;
+}
+
+/* Message shown when a category has no products */
+.products p {
+  margin-left: 0.5em;
+}
+
+/* -------------------------------------------------- */
+/* Part 2A: Products Container                        */
+/* -------------------------------------------------- */
+.products {
+
+}
+
+/* -------------------------------------------------- */
+/* Part 2B: Product Card                              */
+/* -------------------------------------------------- */
+.card {
+
+}
+
+/* Add additional rules for product cards below */
+
+
+/* -------------------------------------------------- */
+/* Part 2C: Overlay Button                            */
+/* -------------------------------------------------- */
+
+
+
+/* -------------------------------------------------- */
+/* Part 2D: Navigation Links                          */
+/* -------------------------------------------------- */
+
+
+
+/* -------------------------------------------------- */
+/* Part 2E: Responsive Design                         */
+/* -------------------------------------------------- */
+@media (max-width: 590px) {
+
+}
