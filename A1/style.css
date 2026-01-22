@@ -240,8 +240,11 @@ main {
   font-weight: bold;
   color: #333333;
   text-align: right;
-  padding-top: 0.8rem;
-  align-self: baseline;
+
+  &.feedback-label {
+    align-self: baseline;
+    margin-top: 0.5rem;
+  }
 }
 
 .email-input,
