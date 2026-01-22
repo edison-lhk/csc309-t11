@@ -243,7 +243,6 @@ main {
 
   &.feedback-label {
     align-self: baseline;
-    margin-top: 0.5rem;
   }
 }
 
