@@ -267,8 +267,11 @@ main {
   border: 1px solid #DDDDDD;
   border-radius: 3px;
   font-size: 16px;
-  color: #888888;
   width: 100%;
+
+  &::placeholder {
+    color: #888888;
+  }
 }
 
 .attachment-input {
