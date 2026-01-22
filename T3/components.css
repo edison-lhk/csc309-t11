@@ -67,7 +67,7 @@ main h2 {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, -150%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,5 +120,7 @@ main h2 {
 /* Part 2E: Responsive Design                         */
 /* -------------------------------------------------- */
 @media (max-width: 590px) {
-
+  .card {
+    width: 100%;
+  }
 }
