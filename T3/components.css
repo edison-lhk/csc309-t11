@@ -35,7 +35,7 @@ main h2 {
     width: 100%;
   }
 
-  &.disabled {
+  &.disabled img {
     filter: brightness(50%);
   }
 
