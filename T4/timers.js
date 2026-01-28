@@ -44,6 +44,8 @@ class Timer {
 
     /* TODO: Add other helper methods as you see fit. */
     tick() {
+        update_stats();
+
         if (this.minutes === 0 && this.seconds === 0) {
             clearInterval(this.interval);
             this.interval = null;
@@ -203,6 +205,8 @@ function extend_all_timers(event, form) {
         }
     })
 
+    update_stats();
+
     return false;
 }
 
@@ -221,6 +225,8 @@ function clear_expired_timers(event) {
      */
     timers.filter(timer => !timer.interval).forEach(timer => timer.remove());
     timers = timers.filter(timer => timer.interval);
+
+    update_stats();
 
     return false;
 }
