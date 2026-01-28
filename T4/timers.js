@@ -46,6 +46,7 @@ class Timer {
     tick() {
         if (this.minutes === 0 && this.seconds === 0) {
             clearInterval(this.interval);
+            this.interval = null;
             return;
         }
 
