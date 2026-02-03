@@ -87,7 +87,7 @@ app.post("/notes", (req, res) => {
     res.status(201).json(noteToReturn);
 });
 
-app.patch("notes/:noteId", (req, res) => {
+app.patch("/notes/:noteId", (req, res) => {
     const { done } = req.query;
     const noteId = Number(req.params.noteId);
 
