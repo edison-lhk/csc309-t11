@@ -80,9 +80,9 @@ app.post("/notes", (req, res) => {
     const newNote = req.body;
 
     const noteToReturn = structuredClone(newNote);
-    noteToReturn.id = notes.length;
+    noteToReturn.id = data.length;
 
-    notes.push(newNote);
+    data.push(newNote);
 
     res.status(201).json(noteToInsert);
 });
