@@ -89,7 +89,7 @@ app.post("/notes", (req, res) => {
 
 app.patch("notes/:noteId", (req, res) => {
     const { done } = req.query;
-    const noteId = req.params.noteId;
+    const noteId = Number(req.params.noteId);
 
     if (done !== "true" && done !== "false") {
         return res.status(400).send("Bad request");
