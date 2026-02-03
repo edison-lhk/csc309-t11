@@ -84,7 +84,7 @@ app.post("/notes", (req, res) => {
 
     data.push(newNote);
 
-    res.status(201).json(noteToInsert);
+    res.status(201).json(noteToReturn);
 });
 
 app.patch("notes/:noteId", (req, res) => {
