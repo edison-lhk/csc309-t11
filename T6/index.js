@@ -131,7 +131,7 @@ app.patch("/notes/:noteId", basicAuth, async (req, res) => {
 
     const noteId = parseInt(req.params.noteId);
     if (isNaN(noteId)) {
-        return res.status(400).json({ message: "Invalid payload" });
+        return res.status(404).json({ message: "Not found" });
     }
 
     const note = await prisma.note.findUnique({ where: { id: noteId } });
@@ -148,9 +148,43 @@ app.patch("/notes/:noteId", basicAuth, async (req, res) => {
         return res.status(400).json({ message: "Invalid payload" });
     }
 
+    if (title && (typeof title !== "string" || title.trim() === '')) {
+        return res.status(400).json({ message: "Invalid payload" });
+    }
+
+    if (description && (typeof description !== "string" || description.trim() === '')) {
+        return res.status(400).json({ message: "Invalid payload" });
+    }
+
+    if (completed && typeof completed !== 'boolean') {
+        return res.status(400).json({ message: "Invalid payload" });
+    }
+
+    if (isPublic && typeof isPublic !== 'boolean') {
+        return res.status(400).json({ message: "Invalid payload" });
+    }
+
+    const data = {};
+
+    if (title) {
+        data.title = title;
+    }
+
+    if (description) {
+        data.description = description;
+    }
+
+    if (completed) {
+        data.completed = completed;
+    }
+
+    if (isPublic) {
+        data.public = isPublic;
+    }
+
     const updated = await prisma.note.update({
         where: { id: noteId },
-        data: { title, description, completed, public: isPublic },
+        data
     });
 
     return res.status(200).json(updated);
