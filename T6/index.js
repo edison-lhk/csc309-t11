@@ -68,7 +68,7 @@ app.get("/notes", async (req, res) => {
         where.completed = done === "true" ? true : false;
     }
 
-    const notes = await prisma.user.findMany({ where });
+    const notes = await prisma.note.findMany({ where });
     res.status(200).json(notes);
 });
 
@@ -100,9 +100,14 @@ app.post("/notes", basicAuth, async (req, res) => {
         return res.status(401).json({ message: "Not authenticated" });
     }
 
-    const { title, description, completed, isPublic } = req.body;
+    const { title, description, completed, public: isPublic } = req.body;
 
-    if (!title || !description || !completed || !isPublic) {
+    if (
+        typeof title !== "string" || title.trim() === '' || 
+        typeof description !== 'string' || description.trim() === '' ||
+        typeof completed !== 'boolean' ||
+        typeof isPublic !== 'boolean'
+    ) {
         return res.status(400).json({ message: "Invalid payload" });
     }
 
@@ -111,7 +116,7 @@ app.post("/notes", basicAuth, async (req, res) => {
             title: title.trim(),
             description: description.trim(),
             completed,
-            isPublic,
+            public: isPublic,
             userId: req.user.id
         },
     });
@@ -138,14 +143,14 @@ app.patch("/notes/:noteId", basicAuth, async (req, res) => {
         return res.status(403).json({ message: "Not permitted" });
     }
 
-    const { title, description, completed, isPublic } = req.body;
+    const { title, description, completed, public: isPublic } = req.body;
     if (!title && !description && !completed && !isPublic) {
         return res.status(400).json({ message: "Invalid payload" });
     }
 
     const updated = await prisma.note.update({
         where: { id: noteId },
-        data: { title, description, completed, isPublic },
+        data: { title, description, completed, public: isPublic },
     });
 
     return res.status(200).json(updated);
