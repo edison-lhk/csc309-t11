@@ -37,3 +37,4 @@ yarn.lock
 
 # SQLite database file
 dev.db
+/generated/prisma
