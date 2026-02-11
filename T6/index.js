@@ -28,7 +28,8 @@ app.get("/", (req, res) => {
 });
 
 const basicAuth = require('./middleware/basicAuth');
-const prisma = require("./db");
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 app.get('/hello', basicAuth, (req, res) => {
   if (req.user) {

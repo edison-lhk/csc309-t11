@@ -1,6 +1,7 @@
 // Import the shared Prisma client instance.
 // This ensures we reuse the same database connection configuration everywhere.
-const prisma = require("../db");
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 async function seedData() {
   const mockUsers = [
