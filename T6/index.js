@@ -137,14 +137,14 @@ app.patch("/notes/:noteId", basicAuth, async (req, res) => {
         return res.status(403).json({ message: "Not permitted" });
     }
 
-    const { title, description, completed, public } = req.body;
-    if (!title && !description && !completed && !public) {
+    const { title, description, completed, isPublic } = req.body;
+    if (!title && !description && !completed && !isPublic) {
         return res.status(400).json({ message: "Invalid payload" });
     }
 
     const updated = await prisma.note.update({
         where: { id: noteId },
-        data: { title, description, completed, public },
+        data: { title, description, completed, isPublic },
     });
 
     return res.status(200).json(updated);
