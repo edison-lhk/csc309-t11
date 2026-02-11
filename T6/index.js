@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 });
 
 const basicAuth = require('./middleware/basicAuth');
-const prisma = require("../db");
+const prisma = require("./db");
 
 app.get('/hello', basicAuth, (req, res) => {
   if (req.user) {
