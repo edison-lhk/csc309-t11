@@ -10,12 +10,12 @@
   "description": "",
   "dependencies": {
     "@prisma/adapter-better-sqlite3": "^7.4.0",
-    "@prisma/client": "^7.4.0",
+    "@prisma/client": "^6.19.2",
     "@prisma/studio": "^0.511.0",
     "better-sqlite3": "^12.6.2",
     "dotenv": "^17.2.4",
     "express": "^5.2.1",
-    "prisma": "^7.4.0",
+    "prisma": "^6.19.2",
     "sqlite3": "^5.1.7"
   }
 }
