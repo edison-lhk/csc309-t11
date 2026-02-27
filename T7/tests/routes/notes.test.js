@@ -178,7 +178,7 @@ describe("Notes endpoints", () => {
       expect(res.statusCode).toBe(401);
     });
 
-    test("403: not permitted (trying to update another user's note)", async () => {
+    test("404: not permitted (trying to update another user's note)", async () => {
       const u1 = await seedUser("owner", "pw1");
       const u2 = await seedUser("attacker", "pw2");
 
@@ -195,7 +195,7 @@ describe("Notes endpoints", () => {
         .set("Authorization", basicAuthHeader("attacker", "pw2"))
         .send({ title: "Hacked" });
 
-      expect(res.statusCode).toBe(403);
+      expect(res.statusCode).toBe(404);
     });
 
     test("404: not found (note does not exist)", async () => {

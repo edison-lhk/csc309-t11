@@ -15,7 +15,7 @@ const router = express.Router();
 
 // define routes
 router.get("/hello", helloWorldController);
-router.get("/users", createUserController);
+router.post("/users", createUserController);
 router.get("/notes", listNotesController);
 router.get("/notes/:noteId", basicAuth, retrieveNoteController);
 router.post("/notes", basicAuth, createNoteController);
