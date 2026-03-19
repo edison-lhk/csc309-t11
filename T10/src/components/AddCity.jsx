@@ -1,18 +1,57 @@
 import './AddCity.css';
 import { forwardRef, useState } from "react";
+import { useCities } from "../contexts/CitiesContext";
 
 const AddCity = forwardRef(({ setError }, ref) => {
     const [cityName, setCityName] = useState("");
+    const { addCity } = useCities();
 
-    const handle_submit = (e) => {
-        e.preventDefault(); 
+    const handle_submit = async (e) => {
+        e.preventDefault();
 
-        setError("TODO: complete me");    
-        // HINT: fetch the coordinates of the city from Nominatim,
-        //       then add it to CitiesContext's list of cities.
-        
-        setCityName("");
-        ref.current?.close();
+        const trimmedName = cityName.trim();
+
+        if (!trimmedName) {
+            setError("City name cannot be blank.");
+            return;
+        }
+
+        try {
+            setError("");
+
+            const response = await fetch(
+                `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(trimmedName)}&limit=1`,
+                {
+                    headers: {
+                        "User-Agent": "ACoolWeatherApp/0.1 (your_email)"
+                    }
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch city coordinates.");
+            }
+
+            const data = await response.json();
+
+            if (!data.length) {
+                setError(`City '${trimmedName}' is not found.`);
+                return;
+            }
+
+            const result = data[0];
+
+            addCity({
+                name: trimmedName,
+                latitude: Number(result.lat),
+                longitude: Number(result.lon),
+            });
+
+            setCityName("");
+            ref.current?.close();
+        } catch (err) {
+            setError(err.message || "Something went wrong.");
+        }
     };
 
     return (

@@ -1,15 +1,36 @@
 import "./Detail.css";
+import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
 import NotFound from "./NotFound";
+import { useNavigate, useParams } from "react-router-dom";
 
-function Weather({ city, setPage }) {
-    const weather = null;
+function Weather({ city }) {
+    const [weather, setWeather] = useState(null);
+    const navigate = useNavigate();
 
-    // TODO: complete me
-    // HINT: fetch the city's weather information from Open-Meteo
+    useEffect(() => {
+        const fetchWeather = async () => {
+            try {
+                const response = await fetch(
+                    `https://api.open-meteo.com/v1/forecast?latitude=${city.latitude}&longitude=${city.longitude}&current=temperature_2m,wind_speed_10m,relative_humidity_2m,precipitation_probability`
+                );
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch weather.");
+                }
+
+                const data = await response.json();
+                setWeather(data.current ?? null);
+            } catch (err) {
+                setWeather(null);
+            }
+        };
+
+        fetchWeather();
+    }, [city.latitude, city.longitude]);
 
     const handle_click = () => {
-        setPage("home");
+        navigate("/");
     };
 
     return <>
@@ -36,15 +57,16 @@ function Weather({ city, setPage }) {
     </>;
 }
 
-function Detail({ cityId, setPage }) {
+function Detail() {
     const { cities } = useCities();
+    const { cityId } = useParams();
 
     const city = cities.find((c) => c.id == cityId);
     if (!city) {
         return <NotFound />;
     }
 
-    return <Weather city={city} setPage={setPage} />;
+    return <Weather city={city} />;
 }
 
 export default Detail;
